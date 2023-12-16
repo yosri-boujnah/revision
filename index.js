@@ -43,5 +43,83 @@ function reverseIterateAndLogRecursively(n) {
     reverseIterateAndLogRecursively(n-1)
 }
 //3
+function weirdDivisionWithFor(n) {
+    for (var i = 1;i<=n;i++){
+        if (i %3===0){
+            console.log('julia')
+        }if (i %5===0){
+            console.log('james')
+        }if (i %3===0&&i%5===0){
+            console.log('julia james')
+        }
+    }
 
 
+}
+//
+function weirdDivisionWithWhile(n) {
+var i=1 
+    while (i<=n){
+        i++
+        
+if (i %3===0){
+            console.log('julia')
+        }
+        if (i %5===0){
+            console.log('james')
+        }
+        if (i %3===0&&i%5===0){
+            console.log('julia james')
+        }
+        
+    }
+
+
+}
+//
+function inverseWeirdDivisionRecursively(n) {
+ if (n===0){
+     return
+ }
+    if (n %3===0){
+            console.log('julia')
+        }
+        if (n %5===0){
+            console.log('james')
+        }
+        if (n %3===0&&n%5===0){
+            console.log('julia james')
+        }
+        inverseWeirdDivisionRecursively(n-1) 
+
+}
+//4
+function laughWithFor(number) {
+var laugh=''
+    for (var i=0;i<=number;i++){
+        laugh=laugh+'ha'
+    }
+    return laugh
+
+}
+//
+function laughWithWhile(number) {
+var laugh=''
+var i=0
+    while(i<=number){
+        i++
+        laugh=laugh+'ha'
+    }
+ return laugh
+
+}
+//
+function laughRecursively(number) {
+
+    if (number===0){
+        return ''
+    } 
+   return 'ha'+ laughRecursively(number-1)
+
+}
+//5
