@@ -1,0 +1,176 @@
+var cube=function(x){ 
+       return x * x * x;}
+//
+var fullname=function (first, last) { 
+       return first + ' ' + last; }
+
+undefined
+fullname('yosri','oumaima')
+'yosri oumaima'
+//
+var power=function (base, exp) { 
+       if (exp === 0) { 
+       return 1; 
+       } 
+       return base * power(base, exp - 1); 
+ } 
+undefined
+power(2,6)
+64
+//
+var sumCubes =function (numbers) { 
+       var total = 0; 
+       for (var i = 0; i < numbers.length; i++) { 
+             total = total + cube(numbers[i]); 
+       } 
+       return total; 
+ }
+undefined
+sumCubes([2,2,2])
+24
+//
+var  sumSquares=function(numbers) { 
+       var total = 0; 
+       
+    each(numbers, function (number) {
+        total = total +(number*number)
+    })
+    
+       return total; 
+ }
+->
+sumSquares([2,2,5,6,3])
+78
+//
+var  sumCube=function(numbers) { 
+       var total = 0; 
+       
+    each(numbers, function (number) {
+        total = total +(number*number*number)
+    })
+    
+       return total; 
+ }
+
+sumCube([2,2,5,6,3])
+384
+//
+var product1=function(numbers) { 
+       var total = 1; 
+       for(var i=0;i<numbers.length;i++){
+        total = total *(numbers[i])
+       }
+    
+       return total; 
+ }
+ //
+ var product=function(numbers) { 
+       var total = 1; 
+       for(var i=0;i<numbers.length;i++){
+        total = total *(numbers[i])
+       }
+    
+       return total; 
+ }
+ //
+ function cubeAll(numbers){
+    var arr=[]
+    for(i=0;i<numbers.length;i++){
+        arr.push(numbers[i]**3)
+    }return arr
+}
+//
+var cubeAll1=function (numbers){
+    var arr=[]
+   each(numbers, function (number) {
+           arr.push(number**3)
+    })
+       return arr
+}
+//
+var odds = function (array){
+
+    var arr =[]
+each(array, function(number) {
+    if( number%2!==0){
+        arr.push(number)
+    }
+})
+    return arr 
+}
+//*******..........more practice.............******
+function sumByAllElementsMultipliedByFour(array) {
+    var total=0
+each(array, function(number){
+    total=total+(number*4)
+})
+    return total
+    
+}
+//
+function sumBy(array, f) { 
+
+var total =0
+    each(array, function (number){
+         total=total+ f(number)
+    })
+    return total
+ } 
+ //
+ sumBy(numbers, function(number){
+    number*number 
+})
+*********.........sprint2.........************
+function each(array, func) { 
+       for (var i = 0; i < array.length; i++) { 
+             func(array[i], i); 
+       } 
+ }
+
+function indexedExponentials(numbers) { 
+var arr= []
+    each(numbers,function(number,i){
+        arr.push(number**i)
+    })
+    return arr
+} 
+//
+function evenIndexedOddNumbers(numbers) { 
+var arr=[]
+    each(numbers,function (element,i){
+    if(i%2===0){
+        arr.push(element)
+        }
+    })
+    return arr       
+} 
+//EX:
+evenIndexedOddNumbers([1, 3, 3, 4, 7, 10])
+[1, 3, 7]
+//
+function evenIndexedEvenLengths(str) { 
+var arr=[]
+    each(str,function (element,i){
+    if(i%2===0 && element.length %2===0){
+        arr.push(element)
+        }
+    })
+    return arr       
+} 
+//EX:
+evenIndexedEvenLengths(['lion', 'monkey', 'aardvaark', 'cat', 'doge'])
+['lion', 'doge']
+//
+function unique(array){
+   var arr = []
+each(array,function(element){
+    if(arr.includes(element)===false){
+        arr.push(element)
+        
+    }
+})
+   return arr 
+}
+EX:
+unique([1, 2, 3, 3, 4, 4, 5])
+[1, 2, 3, 4, 5]

@@ -1,0 +1,207 @@
+function each(array, func) { 
+       for (var i = 0; i < array.length; i++) { 
+             func(array[i], i); 
+       } 
+ } 
+ function map(array, f) { 
+       var acc = []; 
+       each(array, function(element, i) { 
+             acc.push(f(element, i)); 
+       }); 
+       return acc; 
+ }
+ //
+ var people = [ 
+       {name: {first: 'Grace', middle: 'B.', last: 'Hopper'}, age: 85}, 
+       {name: {first: 'Adele', last: 'Goldstine'}, age: 43}, 
+       {name: {first: 'Ada', last: 'Lovelace'}, age: 36}, 
+       {name: {first: 'Hedy', middle: 'E.', last: 'Lamarr'}, age: 85}, 
+       {name: {first: 'Ruchi', last: 'Sanghvi'}, age: 34} 
+ ]; 
+ function ages(people) { 
+       return map(people, function(person) { 
+             return person.age;}); 
+ }
+
+ages(people)
+(5)[85, 43, 36, 85, 34]
+//
+function firstname(people) { 
+       return map(people, function(person) { 
+             return person.name.first;}); 
+ }
+
+firstname(people)
+(5)['Grace', 'Adele', 'Ada', 'Hedy', 'Ruchi']
+function lastname(people) { 
+       return map(people, function(person) { 
+        return person.name.last;}); 
+ }
+
+lastname(people)
+(5)['Hopper', 'Goldstine', 'Lovelace', 'Lamarr', 'Sanghvi']
+function firstname(people) { 
+       return map(people, function(person) { 
+             return person.name.first + ' ' + person.name.last;}); 
+ }
+
+function fullname(people) { 
+       return map(people, function(person) { 
+             return person.name.first + ' ' + person.name.last;}); 
+ }
+
+fullname(people)
+(5)['Grace Hopper', 'Adele Goldstine', 'Ada Lovelace', 'Hedy Lamarr', 'Ruchi Sanghvi']
+//
+function abs(array) {
+    return map(array,function(x) { 
+       if (x >= 0) { 
+             return x; 
+       } return -x; 
+ }) }
+
+abs([1, -2, 37, -100, -8, 5])
+(6)[1, 2, 37, 100, 8, 5]
+//
+function max(numbers) { 
+    var maxx=numbers[0]   
+    for (i=0;i<numbers.length;i++){
+           if (maxx<numbers[i]){
+               maxx=numbers[i]
+           }
+       }return maxx
+ } 
+ //
+ function maximums(arrays) { 
+       return map(arrays,function (numbers) { 
+    var maxx=numbers[0]   
+    for (var j=0;j<numbers.length;j++){
+           if (maxx<numbers[j]){
+               maxx=numbers[j]
+           
+       }
+ } return maxx
+ })} 
+ //*************............more practice..........*****************
+ function exponentials(numbers) { 
+       return map(numbers,function (num) {
+           return num**num
+           
+       }) 
+ } 
+ //
+ function reverseWords (string) {
+   return map (string.split(' '), function (str){
+    
+    var st =''
+    for (var i = str.length-1 ; i>=0 ; i--) {
+     
+            st =st +str[i]}
+        
+        return st  
+        
+    }).join(' ')
+    
+}
+-> reverseWords('hello world')
+'olleh dlrow'<-
+********************.....................sprint 2 Filter.....................*********************
+*************************************************************************************************
+function filter(array,predicat){
+    var acc=[];
+    each(array,function(element) {
+        if (predicat(element)){
+            acc.push(element);
+        }
+    })
+    return acc}
+
+
+function even (array){
+    return filter(array,function(element){
+       return element%2===0
+    })
+}
+
+even([1,23,6,54,8,6])
+[6, 54, 8, 6]
+//
+function  multiplesOfThree(array){
+    return filter(array,function(element){
+       return element%3===0
+    })
+}
+
+multiplesOfThree([1,23,6,54,8,6])
+[6, 54, 6]
+//
+function  positives(array){
+    return filter(array,function(element){
+       return element>=0
+    })
+}
+
+positives([-1,-9,9,5])
+[9, 5]
+//
+function  evenlength(array){
+    return filter(array,function(element){
+       return element.length%2===0
+    })
+}
+
+evenlength(['lion', 'monkey', 'aardvaark', 'cat', 'doge']) 
+['lion', 'monkey', 'doge']
+//************************Morre practic***********************************
+function odds(array){
+    return filter(array,function(element){
+       return element%2!==0
+})
+}
+->>odds([1,23,6,54,8,6])
+[1, 23]
+//
+function negatives(array){
+    return filter(array,function(element){
+       return element<0
+})
+}
+negatives([-2,-9,9,6,38])
+[-2, -9]
+//
+function largerThanSix(array){
+    return filter(array,function(element){
+       return element>6
+})
+}
+
+largerThanSix([-2,-9,9,6,38])
+[9, 38]
+//
+function startsWithChar(strings, character) { 
+ return filter(strings.split(' '),function(element){
+       return element[0]===character
+})
+}
+ 
+startsWithChar(words, 'q')
+-->['quick']
+ startsWithChar(words, 't')
+['the', 'the']
+//
+function filter(array,predicat){
+    var acc=[];
+    each(array,function(element,i) {
+        if (predicat(element,i)){
+            acc.push(element);
+        }
+    })
+    return acc}
+    **
+    function evenIndexedEvenLengths(array) { 
+ return filter(array,function(element,i){
+       return (i%2===0 && element.length%2===0)
+})
+}
+->>evenIndexedEvenLengths(['red', 'green', 'purple', 'blue', 'yellow'])
+['purple', 'yellow']
